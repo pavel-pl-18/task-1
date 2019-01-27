@@ -1,4 +1,11 @@
 package com.hexad.sales.round1.enums;
 
-public class PaymentPurposeType {
+public enum PaymentPurposeType {
+    UNDEFINED,
+    MEMBERSHIP,
+    UPDATE_MEMBERSHIP,
+    PRODUCTS,
+    SERVICE
+
+
 }
