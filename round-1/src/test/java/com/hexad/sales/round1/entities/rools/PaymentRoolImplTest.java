@@ -33,7 +33,6 @@ class PaymentRoolImplTest {
         assertEquals(actual, PaymentPurposeType.UNDEFINED);
     }
 
-
     @ParameterizedTest
     @MethodSource("rool_should_not_be_ok_data")
     void rool_should_not_be_ok(String stringForCheck) {
@@ -50,4 +49,28 @@ class PaymentRoolImplTest {
         return Stream.of(
                 Arguments.of(""),
                 Arguments.of("999"));
-    }}
+    }
+
+    @ParameterizedTest
+    @MethodSource("rool_should_work_in_any_position_of_line_data")
+    void rool_should_work_in_any_position_of_line(String stringForCheck) {
+        // given
+        PaymentRool paymentRool = new PaymentRoolImpl(RoolsConstants.PATTERN_FOR_PRODUCT,
+                PaymentPurposeType.PRODUCTS);
+        // when
+        PaymentPurposeType actual = paymentRool.determinePaymentPurpose(stringForCheck);
+        // then
+        assertEquals(actual, paymentRool.getPaymentPurposeType());
+    }
+
+    private static Stream<Arguments> rool_should_work_in_any_position_of_line_data() {
+        return Stream.of(
+                Arguments.of(RoolsConstants.PATTERN_FOR_PRODUCT),
+                Arguments.of(RoolsConstants.PATTERN_FOR_PRODUCT + "sdffsdf"),
+                Arguments.of("dsfsdf " + RoolsConstants.PATTERN_FOR_PRODUCT + "sdfsdfs"),
+                Arguments.of("dsfsdf " + RoolsConstants.PATTERN_FOR_PRODUCT));
+    }
+
+
+
+}
