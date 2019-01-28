@@ -1,5 +1,6 @@
 package com.hexad.sales.round1.utils;
 
+import com.hexad.sales.round1.entities.master.Firm;
 import com.hexad.sales.round1.entities.payment.bank.BankReceiv;
 import com.hexad.sales.round1.entities.rools.PaymentRool;
 import com.hexad.sales.round1.entities.rools.PaymentRoolImpl;
@@ -37,8 +38,33 @@ public class DataStubs {
     return toReturn;
   }
 
+  /*
+   * Firms generation
+   */
+
+  public static List<Firm> getFirmsList() {
+    List<Firm> toReturn = new ArrayList<>();
+    toReturn.add(getFirms1());
+    toReturn.add(getFirms2());
+    return toReturn;
+  }
+
+  public static Firm getFirms1() {
+    Firm toReturn = new Firm();
+    toReturn.setId(1L);
+    toReturn.setName("Firm 1");
+    toReturn.setEmail("example1@example.com");
+    return toReturn;
+  }
 
 
+  public static Firm getFirms2() {
+    Firm toReturn = new Firm();
+    toReturn.setId(2L);
+    toReturn.setName("Firm 2");
+    toReturn.setEmail("example2@example.com");
+    return toReturn;
+  }
 
 
 }
