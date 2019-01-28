@@ -23,7 +23,7 @@ public class BookGood extends AbstractGood {
 
   @Override
   protected void runServiceAfterShipping() {
-    shippingService.generateDoublePackingSlipForShipping();
+    shippingService.generateDoublePackingSlipForShipping(this);
     commisionPaymentService.generateCommisionPaymentForAgent();
   }
 }

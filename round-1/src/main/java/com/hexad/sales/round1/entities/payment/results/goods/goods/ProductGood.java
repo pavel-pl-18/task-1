@@ -24,7 +24,7 @@ public class ProductGood extends AbstractGood {
 
   @Override
   protected void runServiceAfterShipping() {
-    shippingService.generatePackingSlipForShipping();
+    shippingService.generatePackingSlipForShipping(this);
     commisionPaymentService.generateCommisionPaymentForAgent();
   }
 

@@ -21,6 +21,7 @@ public class VideoGood extends AbstractGood {
 
   @Override
   protected void runServiceAfterShipping() {
+    shippingService.generatePackingSlipForShipping(this);
 
   }
 }
