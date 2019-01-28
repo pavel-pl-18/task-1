@@ -3,6 +3,7 @@ package com.hexad.sales.round1.entities.payment.results.goods;
 import com.hexad.sales.round1.entities.payment.results.goods.goods.BookGood;
 import com.hexad.sales.round1.entities.payment.results.goods.goods.NormalGood;
 import com.hexad.sales.round1.entities.payment.results.goods.goods.ProductGood;
+import com.hexad.sales.round1.entities.payment.results.goods.goods.VideoGood;
 import com.hexad.sales.round1.enums.GoodType;
 import com.hexad.sales.round1.exceptions.GoodsFactoryException;
 import com.hexad.sales.round1.services.shipping.CommisionPaymentService;
@@ -34,6 +35,9 @@ public class GoodsFactory {
         break;
       case BOOK:
         toReturn = new BookGood(type, name, shippingService, commisionPaymentService);
+        break;
+      case VIDEO:
+        toReturn = new VideoGood(type, name, shippingService);
         break;
       default:
         throw new GoodsFactoryException(Cause.CANNOT_FIND_GOOD_TYPE, type);

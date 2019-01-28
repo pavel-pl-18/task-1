@@ -5,9 +5,7 @@ import com.hexad.sales.round1.enums.MembershipStatus;
 import com.hexad.sales.round1.exceptions.ProcessMembershipException;
 import org.springframework.stereotype.Service;
 
-import java.awt.print.PrinterAbortException;
-
-import static com.hexad.sales.round1.exceptions.ProcessMembershipException.*;
+import static com.hexad.sales.round1.exceptions.ProcessMembershipException.Cause;
 
 @Service
 public class ProcessMembershipService {
