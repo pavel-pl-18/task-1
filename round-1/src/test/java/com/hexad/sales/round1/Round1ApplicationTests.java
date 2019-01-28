@@ -11,10 +11,10 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @SpringBootTest
 public class Round1ApplicationTests {
 
-	@Test
-	public void contextLoads() {
-		assertNotNull("works");
-	}
+  @Test
+  public void contextLoads() {
+    assertNotNull("works");
+  }
 
 }
 

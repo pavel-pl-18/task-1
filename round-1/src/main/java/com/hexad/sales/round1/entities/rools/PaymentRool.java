@@ -8,11 +8,11 @@ import java.time.LocalDate;
  * We consider rules, based on payment sum
  */
 public interface PaymentRool {
-    boolean isExpeired();
+  boolean isExpeired();
 
-    LocalDate getExpirationDate();
+  LocalDate getExpirationDate();
 
-    PaymentPurposeType determinePaymentPurpose(String paymentComment);
+  PaymentPurposeType determinePaymentPurpose(String paymentComment);
 
-    PaymentPurposeType getPaymentPurposeType();
+  PaymentPurposeType getPaymentPurposeType();
 }

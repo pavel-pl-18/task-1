@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataStubs {
-    public static List<PaymentRool> getPaymentRoolSet() {
-        List<PaymentRool> toReturn = new ArrayList<>();
-        toReturn.add(new PaymentRoolImpl(RoolsConstants.PATTERN_FOR_PRODUCT, PaymentPurposeType.PRODUCTS));
+  public static List<PaymentRool> getPaymentRoolSet() {
+    List<PaymentRool> toReturn = new ArrayList<>();
+    toReturn.add(new PaymentRoolImpl(RoolsConstants.PATTERN_FOR_PRODUCT, PaymentPurposeType.PRODUCTS));
 /*
         for (String str : new String[]{RoolsConstants.PATTERN_FOR_PRODUCT,
                 RoolsConstants.PATTERN_FOR_BOOK,
@@ -22,6 +22,6 @@ public class DataStubs {
             toReturn.add()
         }
 */
-        return toReturn;
-    }
+    return toReturn;
+  }
 }

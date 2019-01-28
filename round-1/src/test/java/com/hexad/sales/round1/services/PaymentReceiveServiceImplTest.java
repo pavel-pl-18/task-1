@@ -18,29 +18,29 @@ import static org.junit.jupiter.api.Assertions.*;
 @Disabled
 class PaymentReceiveServiceImplTest {
 
-    PaymentReceiveServiceImpl paymentReceiveService = new PaymentReceiveServiceImpl();
-    List<PaymentRool> roolsSet = null;
-    {
-        roolsSet = DataStubs.getPaymentRoolSet();
-    }
+  PaymentReceiveServiceImpl paymentReceiveService = new PaymentReceiveServiceImpl();
+  List<PaymentRool> roolsSet = null;
+
+  {
+    roolsSet = DataStubs.getPaymentRoolSet();
+  }
 
 
-    @ParameterizedTest
-    @MethodSource("test_determinePaymentPurpose_data")
-    void test_determinePaymentPurpose(String stringForCheck, PaymentRool paymentRool) {
-        // given
+  @ParameterizedTest
+  @MethodSource("test_determinePaymentPurpose_data")
+  void test_determinePaymentPurpose(String stringForCheck, PaymentRool paymentRool) {
+    // given
 
-        // when
+    // when
 //        paymentReceiveService.determinePaymentPurpose(roolsSet, stringForCheck);
-        // then
+    // then
 
-    }
+  }
 
-    private static Stream<Arguments> test_determinePaymentPurpose_data() {
-        return Stream.of(
-//                Arguments.of("Hello", 5),
-                Arguments.of(RoolsConstants.PATTERN_FOR_PRODUCT, PaymentPurposeType.PRODUCTS));
-    }
+  private static Stream<Arguments> test_determinePaymentPurpose_data() {
+    return Stream.of(
+        Arguments.of(RoolsConstants.PATTERN_FOR_PRODUCT, PaymentPurposeType.PRODUCTS));
+  }
 
 
 }

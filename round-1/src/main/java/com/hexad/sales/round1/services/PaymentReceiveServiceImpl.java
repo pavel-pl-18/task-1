@@ -9,7 +9,7 @@ import java.util.List;
 @Service
 public class PaymentReceiveServiceImpl {
 
-    public boolean determinePaymentPurpose(List<PaymentRool> roolsSet, BankReceiv bankReceiv) {
-        return false;
-    }
+  public boolean determinePaymentPurpose(List<PaymentRool> roolsSet, BankReceiv bankReceiv) {
+    return false;
+  }
 }

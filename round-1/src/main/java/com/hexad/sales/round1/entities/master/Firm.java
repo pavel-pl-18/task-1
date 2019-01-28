@@ -5,8 +5,8 @@ import lombok.Data;
 
 @Data
 public class Firm {
-    private Long id;
-    private String name;
-    private MembershipStatus membershipStatus;
-    private String email;
+  private Long id;
+  private String name;
+  private MembershipStatus membershipStatus;
+  private String email;
 }
