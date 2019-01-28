@@ -1,5 +1,6 @@
 package com.hexad.sales.round1.utils;
 
+import com.hexad.sales.round1.entities.payment.bank.BankReceiv;
 import com.hexad.sales.round1.entities.rools.PaymentRool;
 import com.hexad.sales.round1.entities.rools.PaymentRoolImpl;
 import com.hexad.sales.round1.entities.rools.RoolsConstants;
@@ -24,4 +25,20 @@ public class DataStubs {
 */
     return toReturn;
   }
+
+  public static BankReceiv getBankReceivValidComment() {
+    BankReceiv toReturn = new BankReceiv();
+    toReturn.setComment(RoolsConstants.PATTERN_FOR_PRODUCT);
+    return toReturn;
+  }
+
+  public static BankReceiv getBankReceivInValidComment() {
+    BankReceiv toReturn = new BankReceiv();
+    return toReturn;
+  }
+
+
+
+
+
 }

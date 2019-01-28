@@ -1,21 +1,15 @@
 package com.hexad.sales.round1.services;
 
+import com.hexad.sales.round1.entities.payment.bank.BankReceiv;
 import com.hexad.sales.round1.entities.rools.PaymentRool;
-import com.hexad.sales.round1.entities.rools.RoolsConstants;
-import com.hexad.sales.round1.enums.PaymentPurposeType;
 import com.hexad.sales.round1.utils.DataStubs;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.List;
-import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@Disabled
 class PaymentReceiveServiceImplTest {
 
   PaymentReceiveServiceImpl paymentReceiveService = new PaymentReceiveServiceImpl();
@@ -26,21 +20,27 @@ class PaymentReceiveServiceImplTest {
   }
 
 
-  @ParameterizedTest
-  @MethodSource("test_determinePaymentPurpose_data")
-  void test_determinePaymentPurpose(String stringForCheck, PaymentRool paymentRool) {
+  @Test
+  void determine_payment_purpose_ok() {
     // given
-
+    BankReceiv bankReceiv = DataStubs.getBankReceivValidComment();
     // when
-//        paymentReceiveService.determinePaymentPurpose(roolsSet, stringForCheck);
+    boolean actual = paymentReceiveService.determinePaymentPurpose(roolsSet, bankReceiv);
     // then
-
+    assertTrue(actual);
   }
 
-  private static Stream<Arguments> test_determinePaymentPurpose_data() {
-    return Stream.of(
-        Arguments.of(RoolsConstants.PATTERN_FOR_PRODUCT, PaymentPurposeType.PRODUCTS));
+  @Test
+  void determine_payment_purpose_not_ok() {
+    // given
+    BankReceiv bankReceiv = DataStubs.getBankReceivInValidComment();
+    // when
+    boolean actual = paymentReceiveService.determinePaymentPurpose(roolsSet, bankReceiv);
+    // then
+    assertFalse(actual);
   }
+
+
 
 
 }
