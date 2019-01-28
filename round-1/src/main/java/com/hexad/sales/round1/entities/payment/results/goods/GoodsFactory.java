@@ -27,7 +27,7 @@ public class GoodsFactory {
   public <T extends AbstractGood> T build(GoodType type, String name) {
     AbstractGood toReturn = null;
     switch (type) {
-      case NORMAL_BOOD_TYPE:
+      case NORMAL_GOOD_TYPE:
         toReturn = new NormalGood(type, name);
         break;
       case FISICAL_PRODUCT:
@@ -37,7 +37,7 @@ public class GoodsFactory {
         toReturn = new BookGood(type, name, shippingService, commisionPaymentService);
         break;
       case VIDEO:
-        toReturn = new VideoGood(type, name, shippingService);
+        toReturn = new VideoGood(type, name, shippingService, this);
         break;
       default:
         throw new GoodsFactoryException(Cause.CANNOT_FIND_GOOD_TYPE, type);

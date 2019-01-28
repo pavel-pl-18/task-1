@@ -4,5 +4,5 @@ public enum GoodType {
   FISICAL_PRODUCT,
   VIDEO,
   BOOK,
-  NORMAL_BOOD_TYPE
+  NORMAL_GOOD_TYPE
 }
