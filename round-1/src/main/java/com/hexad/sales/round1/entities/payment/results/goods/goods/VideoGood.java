@@ -33,8 +33,12 @@ public class VideoGood extends AbstractGood {
 
   @Override
   protected void runServiceAfterShipping() {
-    AbstractGood firstAid = goodsFactory.build(GoodType.NORMAL_GOOD_TYPE, "fist aid");
-    shippingService.generatePackingSlipForShipping(this, firstAid);
+    if (addFirstAid) {
+      AbstractGood firstAid = goodsFactory.build(GoodType.NORMAL_GOOD_TYPE, "fist aid");
+      shippingService.generatePackingSlipForShipping(this, firstAid);
+    } else  {
+      shippingService.generatePackingSlipForShipping(this);
+    }
 
   }
 
