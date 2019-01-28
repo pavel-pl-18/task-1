@@ -23,7 +23,7 @@ class ProcessMembershipServiceTest {
     Firm firm = DataStubs.getFirms1();
     firm.setMembershipStatus(null);
     // when
-    service.processMembership(firm);
+    assertTrue(service.processMembership(firm));
     // then
     assertEquals(firm.getMembershipStatus(), MembershipStatus.ACTIVE);
   }
@@ -48,8 +48,36 @@ class ProcessMembershipServiceTest {
         Arguments.of(MembershipStatus.UPGRATED, Cause.CANNOT_ACTIVATE_MEMBERSHIP_CLIENT_IS_UPGRATED_MEMBER));
   }
 
+  @Test
+  void processUpgretedMembership_ok() {
+    // given
+    Firm firm = DataStubs.getFirms1();
+    firm.setMembershipStatus(MembershipStatus.ACTIVE);
+    // when
+    assertTrue(service.processUpgrateMembership(firm));
+    // then
+    assertEquals(firm.getMembershipStatus(), MembershipStatus.UPGRATED);
+  }
 
+  @ParameterizedTest
+  @MethodSource("processUpgretedMembership_exceptions_data")
+  void processUpgretedMembership_exceptions(MembershipStatus membershipStatus,
+                                            Cause cause) {
+    // given
+    Firm firm = DataStubs.getFirms1();
+    firm.setMembershipStatus(membershipStatus);
+    // when then
+    Throwable exception = assertThrows(ProcessMembershipException.class, () -> {
+      service.processUpgrateMembership(firm);
+    });
+    assertEquals(cause.name(), exception.getMessage());
+  }
 
+  private static Stream<Arguments> processUpgretedMembership_exceptions_data() {
+    return Stream.of(
+        Arguments.of(MembershipStatus.NONE, Cause.CANNOT_UPGRATE_MEMBERSHIP_BECAUSE_CLIENT_IS_NOT_A_MEMBER),
+        Arguments.of(MembershipStatus.UPGRATED, Cause.CANNOT_ACTUVATE_UPGRATED_BECAUSE_FIRM_IS_ALREADY_UPGRATED));
+  }
 
 
 }
