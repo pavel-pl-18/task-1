@@ -14,16 +14,11 @@ public class DataStubs {
   public static List<PaymentRool> getPaymentRoolSet() {
     List<PaymentRool> toReturn = new ArrayList<>();
     toReturn.add(new PaymentRoolImpl(RoolsConstants.PATTERN_FOR_PRODUCT, PaymentPurposeType.PRODUCTS));
-/*
-        for (String str : new String[]{RoolsConstants.PATTERN_FOR_PRODUCT,
-                RoolsConstants.PATTERN_FOR_BOOK,
-                RoolsConstants.PATTERN_FOR_MEMBERSHIP,
-                RoolsConstants.PATTERN_FOR_UPGRATE_MEMEBERSHIP,
-                RoolsConstants.PATTERN_FOR_VIDEO
-        }) {
-            toReturn.add()
-        }
-*/
+    toReturn.add(new PaymentRoolImpl(RoolsConstants.PATTERN_FOR_BOOK, PaymentPurposeType.PRODUCTS));
+    toReturn.add(new PaymentRoolImpl(RoolsConstants.PATTERN_FOR_MEMBERSHIP, PaymentPurposeType.MEMBERSHIP));
+    toReturn.add(new PaymentRoolImpl(RoolsConstants.PATTERN_FOR_UPGRATE_MEMEBERSHIP, PaymentPurposeType.UPDATE_MEMBERSHIP));
+    toReturn.add(new PaymentRoolImpl(RoolsConstants.PATTERN_FOR_VIDEO, PaymentPurposeType.PRODUCTS));
+
     return toReturn;
   }
 
